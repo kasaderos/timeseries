@@ -3,7 +3,7 @@ library('rjson')
 library(ggplot2)
 days <- 14
 start <- as.numeric(Sys.time() - 24 * days * 60 * 60)
-url <- paste0("https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start=", start, "&end=9999999999&period=300")
+url <- paste0("https://poloniex.com/public?command=returnChartData&currencyPair=BTC_ETH&start=", start, "&end=9999999999&period=1800")
 r <- GET(url)
 p <- 50
 body <- content(r)
@@ -59,3 +59,4 @@ ggplot() +
   #xlim(1.5855e+9, 1.586e+9)+
   ylim(0.02, 0.0225) +
   geom_vline(xintercept = df2$DATE[nrow(df2) - p])
+
